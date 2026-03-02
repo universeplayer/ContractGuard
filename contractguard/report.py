@@ -73,8 +73,8 @@ def _print_header(result: AnalysisResult) -> None:
     header = Text()
     header.append("\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n")
     header.append("\u2502  ", style="default")
-    header.append("FINEPRINT", style="bold cyan")
-    header.append(" Contract Analysis Report  \u2502\n")
+    header.append("CONTRACTGUARD", style="bold cyan")
+    header.append(" Analysis Report  \u2502\n")
     header.append(f"\u2502  Contract Type: {contract_label:<23}\u2502\n")
     header.append("\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518")
     console.print(header)
@@ -113,7 +113,7 @@ def _print_issues(issues: list[Issue], title: str, color: str, icon: str) -> Non
 def _print_protections(protections: list[Protection]) -> None:
     """Print good clauses found."""
     console.print(f"\n[bold green]\u2714 PROTECTIONS ({len(protections)} found)[/bold green]")
-    console.print("[green]{'=' * 50}[/green]")
+    console.print(f"[green]{'=' * 50}[/green]")
 
     for p in protections:
         console.print(f"  [green]\u2714[/green] [bold]{p.title}[/bold] ({p.clause})")
@@ -160,7 +160,7 @@ def _print_score(result: AnalysisResult) -> None:
 def generate_markdown_report(result: AnalysisResult) -> str:
     """Generate a markdown report string."""
     lines = [
-        f"# Fineprint Contract Analysis Report",
+        f"# ContractGuard Analysis Report",
         f"",
         f"**Contract Type:** {result.contract_type.value.replace('_', ' ').title()}",
         f"**Fairness Score:** {result.fairness_grade} ({result.fairness_score}/100)",
