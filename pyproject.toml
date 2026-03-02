@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fineprint-ai"
+version = "0.1.0"
+description = "AI agent that reads the fine print so you don't have to"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Yufeng He", email = "40085740+universeplayer@users.noreply.github.com" },
+]
+keywords = ["ai", "contract", "legal", "agent", "llm", "review"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business",
+    "Topic :: Text Processing :: General",
+]
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+    "openai>=1.0",
+    "pdfplumber>=0.10",
+    "python-docx>=1.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract>=0.3"]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "ruff>=0.4"]
+
+[project.scripts]
+fineprint = "fineprint.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/universeplayer/fineprint"
+Repository = "https://github.com/universeplayer/fineprint"
+Issues = "https://github.com/universeplayer/fineprint/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fineprint"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

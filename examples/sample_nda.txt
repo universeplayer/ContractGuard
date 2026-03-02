@@ -1,0 +1,46 @@
+MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Non-Disclosure Agreement ("Agreement") is entered into as of March 1, 2026, by and between:
+
+Party A: TechStart Inc., a Delaware corporation ("Discloser")
+Party B: _________________ ("Recipient")
+
+1. DEFINITION OF CONFIDENTIAL INFORMATION
+"Confidential Information" means any and all information, whether written, oral, electronic, or visual, disclosed by either party, including but not limited to trade secrets, business plans, financial data, customer lists, technical specifications, source code, algorithms, and any other proprietary information.
+
+2. OBLIGATIONS
+The Recipient agrees to:
+(a) Hold all Confidential Information in strict confidence;
+(b) Not disclose any Confidential Information to any third party without prior written consent;
+(c) Use Confidential Information solely for the purpose of evaluating a potential business relationship;
+(d) Take all reasonable measures to protect the confidentiality of the information.
+
+3. TERM
+This Agreement shall remain in effect for a period of five (5) years from the date of execution. The obligations of confidentiality shall survive the termination of this Agreement indefinitely.
+
+4. EXCLUSIONS
+Confidential Information shall not include information that:
+(a) Is or becomes publicly available through no fault of the Recipient;
+(b) Was known to the Recipient prior to disclosure;
+(c) Is independently developed by the Recipient without use of Confidential Information;
+(d) Is disclosed to the Recipient by a third party without breach of any obligation of confidentiality.
+
+5. RETURN OF INFORMATION
+Upon termination of this Agreement or upon request, the Recipient shall promptly return or destroy all copies of Confidential Information in its possession.
+
+6. REMEDIES
+The parties acknowledge that a breach of this Agreement may cause irreparable harm. In the event of a breach, the non-breaching party shall be entitled to seek injunctive relief in addition to any other remedies available at law or in equity.
+
+7. NON-SOLICITATION
+For a period of two (2) years following the termination of this Agreement, neither party shall directly or indirectly solicit, hire, or engage any employee, contractor, or consultant of the other party.
+
+8. GOVERNING LAW
+This Agreement shall be governed by the laws of the State of Delaware, without regard to its conflict of laws principles.
+
+9. ENTIRE AGREEMENT
+This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior agreements and understandings.
+
+SIGNATURES:
+
+Party A: ___________________________  Date: ___________
+Party B: ___________________________  Date: ___________

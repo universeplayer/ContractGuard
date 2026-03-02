@@ -1,0 +1,85 @@
+"""Command-line interface for fineprint."""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import click
+from rich.console import Console
+
+from fineprint import __version__
+
+console = Console()
+
+
+@click.group()
+@click.version_option(__version__, prog_name="fineprint")
+def main():
+    """AI agent that reads the fine print so you don't have to.
+
+    Upload any contract and get instant analysis of red flags,
+    unfair terms, and missing protections.
+    """
+    pass
+
+
+@main.command()
+@click.argument("file", type=click.Path(exists=True))
+@click.option("--model", "-m", default=None, help="LLM model to use (default: anthropic/claude-sonnet-4)")
+@click.option("--api-key", "-k", envvar="OPENROUTER_API_KEY", help="API key (or set OPENROUTER_API_KEY)")
+@click.option("--base-url", "-u", envvar="OPENROUTER_BASE_URL", help="API base URL")
+@click.option("--output", "-o", type=click.Path(), help="Save markdown report to file")
+@click.option("--json", "json_output", is_flag=True, help="Output raw JSON instead of formatted report")
+def scan(file: str, model: str | None, api_key: str | None, base_url: str | None,
+         output: str | None, json_output: bool):
+    """Scan a contract for red flags and unfair terms.
+
+    Supports PDF, DOCX, and TXT files.
+
+    \b
+    Examples:
+        fineprint scan lease.pdf
+        fineprint scan contract.docx --model openai/gpt-4o
+        fineprint scan nda.txt -o report.md
+    """
+    from fineprint.analyzer import DEFAULT_MODEL, analyze_contract
+    from fineprint.parser import extract_text
+    from fineprint.report import generate_markdown_report, print_report
+
+    model = model or DEFAULT_MODEL
+
+    # Step 1: Parse document
+    with console.status("[bold blue]Parsing document...[/bold blue]"):
+        try:
+            text = extract_text(file)
+        except Exception as e:
+            console.print(f"[bold red]Error:[/bold red] {e}")
+            sys.exit(1)
+
+    console.print(f"[green]\u2714[/green] Parsed {Path(file).name} ({len(text):,} characters)")
+
+    # Step 2: Analyze with LLM
+    with console.status(f"[bold blue]Analyzing contract with {model}...[/bold blue]"):
+        try:
+            result = analyze_contract(
+                contract_text=text,
+                model=model,
+                api_key=api_key,
+                base_url=base_url,
+            )
+        except Exception as e:
+            console.print(f"[bold red]Error:[/bold red] {e}")
+            sys.exit(1)
+
+    # Step 3: Output results
+    if json_output:
+        console.print(result.model_dump_json(indent=2))
+    else:
+        print_report(result)
+
+    # Step 4: Save markdown report if requested
+    if output:
+        md_report = generate_markdown_report(result)
+        Path(output).write_text(md_report, encoding="utf-8")
+        console.print(f"\n[green]\u2714[/green] Report saved to {output}")
