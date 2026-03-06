@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![CI](https://github.com/universeplayer/ContractGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/universeplayer/ContractGuard/actions)
+[![CI](https://github.com/he-yufeng/ContractGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/he-yufeng/ContractGuard/actions)
 
 **[English](README.md) | [中文](README_CN.md)**
 
@@ -306,7 +306,7 @@ ContractGuard 使用 OpenAI 兼容 API 格式，几乎支持所有 LLM 服务商
 仓库里附带了故意加入大量问题的示例合同，用于测试：
 
 ```bash
-git clone https://github.com/universeplayer/ContractGuard.git
+git clone https://github.com/he-yufeng/ContractGuard.git
 cd ContractGuard
 pip install -e .
 
@@ -386,7 +386,7 @@ ContractGuard 使用最先进的大模型（Claude Sonnet、GPT-4o），在法�
 
 欢迎贡献！你可以：
 
-- **报告 bug** — 在 [Issues](https://github.com/universeplayer/ContractGuard/issues) 中说明合同类型和期望行为
+- **报告 bug** — 在 [Issues](https://github.com/he-yufeng/ContractGuard/issues) 中说明合同类型和期望行为
 - **增加测试合同** — 更多带有典型问题的示例合同
 - **优化 prompt** — 让 LLM 分析更准确
 - **多语言测试** — 用不同语言的合同测试并反馈结果
@@ -402,6 +402,6 @@ ContractGuard 使用最先进的大模型（Claude Sonnet、GPT-4o），在法�
 
 **如果 ContractGuard 帮你避开了一份坑人合同，请给个 star！**
 
-[报告问题](https://github.com/universeplayer/ContractGuard/issues) · [功能建议](https://github.com/universeplayer/ContractGuard/issues)
+[报告问题](https://github.com/he-yufeng/ContractGuard/issues) · [功能建议](https://github.com/he-yufeng/ContractGuard/issues)
 
 </div>

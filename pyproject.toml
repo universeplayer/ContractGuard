@@ -10,7 +10,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
-    { name = "Yufeng He", email = "40085740+universeplayer@users.noreply.github.com" },
+    { name = "Yufeng He", email = "40085740+he-yufeng@users.noreply.github.com" },
 ]
 keywords = ["ai", "contract", "legal", "agent", "llm", "review", "guard", "red-flag"]
 classifiers = [
@@ -42,9 +42,9 @@ dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "ruff>=0.4"]
 contractguard = "contractguard.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/universeplayer/ContractGuard"
-Repository = "https://github.com/universeplayer/ContractGuard"
-Issues = "https://github.com/universeplayer/ContractGuard/issues"
+Homepage = "https://github.com/he-yufeng/ContractGuard"
+Repository = "https://github.com/he-yufeng/ContractGuard"
+Issues = "https://github.com/he-yufeng/ContractGuard/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["contractguard"]

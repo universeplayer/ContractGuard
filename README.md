@@ -8,7 +8,7 @@ Upload any contract → get red flags, unfair terms, and plain-English explanati
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![CI](https://github.com/universeplayer/ContractGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/universeplayer/ContractGuard/actions)
+[![CI](https://github.com/he-yufeng/ContractGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/he-yufeng/ContractGuard/actions)
 
 **[English](README.md) | [中文](README_CN.md)**
 
@@ -315,7 +315,7 @@ ContractGuard uses the OpenAI-compatible API format, so it works with virtually 
 The repo includes sample contracts intentionally loaded with red flags for testing:
 
 ```bash
-git clone https://github.com/universeplayer/ContractGuard.git
+git clone https://github.com/he-yufeng/ContractGuard.git
 cd ContractGuard
 pip install -e .
 
@@ -396,7 +396,7 @@ Yes. Use `--json` to get structured output that can be parsed by other tools. Ex
 
 Contributions are welcome! Here's how you can help:
 
-- **Report bugs** — Open an [issue](https://github.com/universeplayer/ContractGuard/issues) with the contract type and expected behavior
+- **Report bugs** — Open an [issue](https://github.com/he-yufeng/ContractGuard/issues) with the contract type and expected behavior
 - **Add contract samples** — More sample contracts for testing (with intentional red flags)
 - **Improve prompts** — Better LLM prompts for more accurate analysis
 - **Add languages** — Test with contracts in different languages and report results
@@ -412,6 +412,6 @@ Contributions are welcome! Here's how you can help:
 
 **If ContractGuard saved you from a bad contract, consider giving it a star!**
 
-[Report a Bug](https://github.com/universeplayer/ContractGuard/issues) · [Request a Feature](https://github.com/universeplayer/ContractGuard/issues)
+[Report a Bug](https://github.com/he-yufeng/ContractGuard/issues) · [Request a Feature](https://github.com/he-yufeng/ContractGuard/issues)
 
 </div>
