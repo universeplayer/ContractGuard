@@ -83,3 +83,14 @@ def scan(file: str, model: str | None, api_key: str | None, base_url: str | None
         md_report = generate_markdown_report(result)
         Path(output).write_text(md_report, encoding="utf-8")
         console.print(f"\n[green]\u2714[/green] Report saved to {output}")
+
+
+@main.command()
+def web():
+    """Launch the web UI (requires: pip install contractguard[web])."""
+    try:
+        from contractguard.web import main as launch
+    except ImportError:
+        console.print("[red]Gradio not installed.[/red] Run: pip install contractguard[web]")
+        return
+    launch()
