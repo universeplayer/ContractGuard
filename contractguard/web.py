@@ -4,9 +4,8 @@ from __future__ import annotations
 
 import gradio as gr
 
-from contractguard.analyzer import analyze_contract, DEFAULT_MODEL
+from contractguard.analyzer import analyze_contract
 from contractguard.parser import extract_text
-from contractguard.report import generate_markdown_report
 
 
 def _analyze(file, model: str, api_key: str, lang: str = "en"):

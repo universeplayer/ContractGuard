@@ -11,7 +11,6 @@ from pydantic import ValidationError
 from contractguard.models import AnalysisResult
 from contractguard.prompts import get_prompts
 
-
 DEFAULT_MODEL = "anthropic/claude-sonnet-4"
 MAX_CONTRACT_CHARS = 120_000  # ~30K tokens
 
@@ -81,7 +80,7 @@ def analyze_contract(
     if content.startswith("```"):
         lines = content.split("\n")
         # Remove first and last lines (```json and ```)
-        lines = [l for l in lines if not l.strip().startswith("```")]
+        lines = [line for line in lines if not line.strip().startswith("```")]
         content = "\n".join(lines)
 
     try:

@@ -27,7 +27,7 @@ jobs:
           pip install -e ".[dev]"
 
       - name: Lint with ruff
-        run: ruff check fineprint/
+        run: ruff check contractguard/
 
       - name: Run tests
         run: pytest tests/ -v

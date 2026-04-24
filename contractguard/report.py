@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 from rich.console import Console
-from rich.markdown import Markdown
 from rich.panel import Panel
-from rich.table import Table
 from rich.text import Text
 
 from contractguard.models import AnalysisResult, Issue, Protection, Severity
@@ -144,7 +142,10 @@ def _print_score(result: AnalysisResult) -> None:
     else:
         bar_color = "red"
 
-    bar = f"[{bar_color}]{'\u2588' * filled}[/{bar_color}][dim]{'\u2591' * empty}[/dim]"
+    # Py 3.10/3.11 don't allow backslash escapes inside f-string expressions; build pieces first.
+    filled_bar = "\u2588" * filled
+    empty_bar = "\u2591" * empty
+    bar = f"[{bar_color}]{filled_bar}[/{bar_color}][dim]{empty_bar}[/dim]"
 
     console.print(Panel(
         f"  {bar}  [{grade_color}]{result.fairness_grade}[/{grade_color}]  ({score}/100)\n\n"
@@ -160,18 +161,18 @@ def _print_score(result: AnalysisResult) -> None:
 def generate_markdown_report(result: AnalysisResult) -> str:
     """Generate a markdown report string."""
     lines = [
-        f"# ContractGuard Analysis Report",
-        f"",
+        "# ContractGuard Analysis Report",
+        "",
         f"**Contract Type:** {result.contract_type.value.replace('_', ' ').title()}",
         f"**Fairness Score:** {result.fairness_grade} ({result.fairness_score}/100)",
         f"**Parties:** {', '.join(result.parties)}",
-        f"",
-        f"## Summary",
-        f"",
+        "",
+        "## Summary",
+        "",
         result.summary,
-        f"",
-        f"## Key Terms",
-        f"",
+        "",
+        "## Key Terms",
+        "",
     ]
     for term in result.key_terms:
         lines.append(f"- {term}")
@@ -181,15 +182,15 @@ def generate_markdown_report(result: AnalysisResult) -> str:
         for i, issue in enumerate(result.red_flags, 1):
             lines.extend([
                 f"### {i}. {issue.title}",
-                f"",
+                "",
                 f"**Clause:** {issue.clause}",
-                f"",
+                "",
                 f"> {issue.quote}",
-                f"",
+                "",
                 f"{issue.explanation}",
-                f"",
+                "",
                 f"**Suggestion:** {issue.suggestion}",
-                f"",
+                "",
             ])
 
     if result.warnings:
@@ -197,15 +198,15 @@ def generate_markdown_report(result: AnalysisResult) -> str:
         for i, issue in enumerate(result.warnings, 1):
             lines.extend([
                 f"### {i}. {issue.title}",
-                f"",
+                "",
                 f"**Clause:** {issue.clause}",
-                f"",
+                "",
                 f"> {issue.quote}",
-                f"",
+                "",
                 f"{issue.explanation}",
-                f"",
+                "",
                 f"**Suggestion:** {issue.suggestion}",
-                f"",
+                "",
             ])
 
     if result.good_clauses:
